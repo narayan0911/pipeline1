@@ -5,6 +5,12 @@ terraform {
       version = "4.76.0"
     }
   }
+backend "azurerm" {
+  resource_group_name   = "mishra_rg"
+  storage_account_name  = "mishrastorage"
+  container_name        = "tfstate"
+  key                   = "pipeline.tfstate"
+} 
 }
 provider "azurerm" {
   features {}
