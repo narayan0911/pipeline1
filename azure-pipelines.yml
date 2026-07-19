@@ -24,8 +24,7 @@ steps:
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
-    command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
+    command: 'destroy'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
 
 
