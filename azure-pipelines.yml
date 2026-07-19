@@ -9,6 +9,7 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
+    workingDirectory: $(System.DefaultWorkingDirectory)/child parent module/environment/dev
 
 
 
