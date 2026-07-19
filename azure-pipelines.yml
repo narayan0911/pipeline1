@@ -3,15 +3,13 @@ trigger: none
 
 pool: infra-pool
 
-steps:  
+steps:   
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
-    command: 'init'
-    backendServiceArm: 'narayanServiceConnection'
-    backendAzureRmStorageAccountName: 'test'
-    backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'terraform.tfstate'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'narayanServiceConnection'
+
 
 
 
