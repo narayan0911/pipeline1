@@ -8,8 +8,8 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
-
 
 
 
