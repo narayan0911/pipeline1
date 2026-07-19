@@ -26,6 +26,7 @@ steps:
     provider: 'azurerm'
     command: 'destroy'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
 
 
 
