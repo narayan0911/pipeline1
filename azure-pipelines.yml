@@ -20,6 +20,7 @@ variables:
 - name: backendAzureRmKey
   value: 'pipeline.tfstate'  
 
+
 pool: infra-pool
 
 steps: 
