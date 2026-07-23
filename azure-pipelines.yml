@@ -27,11 +27,11 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '${workingDirectory}'
-    backendServiceArm: '${backendServiceArm}'
-    backendAzureRmStorageAccountName: '${backendAzureRmStorageAccountName}'
-    backendAzureRmContainerName: '${backendAzureRmContainerName}'
-    backendAzureRmKey: '${backendAzureRmKey}'
+    workingDirectory: '$(workingDirectory)'
+    backendServiceArm: '$(backendServiceArm)'
+    backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
+    backendAzureRmContainerName: '$(backendAzureRmContainerName)'
+    backendAzureRmKey: '$(backendAzureRmKey)'
 
 - task: TerraformTask@5
   inputs:
