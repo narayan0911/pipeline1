@@ -3,7 +3,6 @@ module "rg" {
   rgs    = var.rgs
 }
 
-
 module "vir" {
   depends_on = [module.rg]
   source     = "../../module/vnet"
