@@ -1,5 +1,7 @@
 
-trigger: none
+trigger:
+  main
+  
 
 parameters:
   - name: environment
