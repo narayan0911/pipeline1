@@ -10,7 +10,7 @@ parameters:
 
 variables:
 - name: workingDirectory 
-  value: '$(System.DefaultWorkingDirectory)/child parent module/environment/${parameters.environment}'
+  value: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
 - name: backendServiceArm
   value: 'narayanServiceConnection'
 - name: backendAzureRmStorageAccountName
