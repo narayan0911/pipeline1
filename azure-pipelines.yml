@@ -1,12 +1,12 @@
 
-trigger: 
-- main
-# parameters:
-#   - name: myMultiString
-#     type: string
-#     values:
-#       - dev
-#       - prod
+trigger: none
+
+parameters:
+  - name: environment
+    type: string
+    values:
+      - dev
+      - prod
 
 pool: infra-pool
 
@@ -27,13 +27,6 @@ steps:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
-
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'destroy'
-    environmentServiceNameAzureRM: 'narayanServiceConnection'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
 
 
 
