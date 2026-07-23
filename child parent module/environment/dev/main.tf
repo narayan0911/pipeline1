@@ -9,6 +9,7 @@ module "vir" {
   vnets      = var.vnets
 }
 
+
 module "sub" {
   depends_on = [module.vir]
   source     = "../../module/subnet"
