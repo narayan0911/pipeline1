@@ -37,7 +37,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: '${workingDirectory}'
+    workingDirectory: '$(workingDirectory)'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
 
 
