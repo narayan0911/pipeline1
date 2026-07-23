@@ -1,5 +1,12 @@
 
-trigger: none
+trigger: 
+- main
+parameters:
+  - name: myMultiString
+    type: string
+    values:
+      - dev
+      - prod
 
 pool: infra-pool
 
@@ -10,9 +17,9 @@ steps:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
     backendServiceArm: 'narayanServiceConnection'
-    backendAzureRmStorageAccountName: 'test'
+    backendAzureRmStorageAccountName: 'mishrastorage'
     backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'terraform.tfstate'
+    backendAzureRmKey: 'pipeline.tfstate'
 
 - task: TerraformTask@5
   inputs:
@@ -20,12 +27,13 @@ steps:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
+
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'destroy'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
 
 
 
