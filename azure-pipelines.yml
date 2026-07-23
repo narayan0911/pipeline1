@@ -8,6 +8,18 @@ parameters:
       - dev
       - prod
 
+variables:
+- name: workingDirectory 
+  value: '$(System.DefaultWorkingDirectory)/child parent module/environment/${{parameters.environment}}'
+- name: backendServiceArm
+  value: 'narayanServiceConnection'
+- name: backendAzureRmStorageAccountName
+  value: 'mishrastorage'
+- name:  backendAzureRmContainerName 
+  value: 'tfstate'
+- name: backendAzureRmKey
+  value: 'pipeline.tfstate'  
+
 pool: infra-pool
 
 steps: 
@@ -15,17 +27,17 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
-    backendServiceArm: 'narayanServiceConnection'
-    backendAzureRmStorageAccountName: 'mishrastorage'
-    backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'pipeline.tfstate'
+    workingDirectory: '$(workingDirectory)'
+    backendServiceArm: '$(backendServiceArm)'
+    backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
+    backendAzureRmContainerName: '$(backendAzureRmContainerName)'
+    backendAzureRmKey: '$(backendAzureRmKey)'
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/child parent module/environment/dev'
+    workingDirectory: '$(workingDirectory)'
     environmentServiceNameAzureRM: 'narayanServiceConnection'
 
 
