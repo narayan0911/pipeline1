@@ -1,5 +1,12 @@
 
-trigger: none
+trigger: 
+- main
+parameters:
+  - name: myMultiString
+    type: string
+    values:
+      - dev
+      - prod
 
 pool: infra-pool
 
